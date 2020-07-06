@@ -9,7 +9,7 @@ import br.com.soc.exame.config.DbConection;
 public class Dao {
 	
 	
-	public int registerUser(String nome, String cpf, String telefone, String email, String resultado) throws Exception {
+	public int registerExame(String nome, String cpf, String telefone, String email, String resultado) throws Exception {
 		int i = 0;
 		try {
 			String sql = "INSERT INTO EXAME VALUES (?,?,?,?,?)";
