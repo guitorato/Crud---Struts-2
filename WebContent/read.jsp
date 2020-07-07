@@ -29,7 +29,6 @@ th {height: 30px;}
 				</thead>
 				<s:iterator value="exames">
 					<tr>
-						<td><s:property value="id" /></td>
 						<td><s:property value="nome" /></td>
 						<td><s:property value="cpf" /></td>
 						<td><s:property value="email" /></td>
@@ -48,7 +47,7 @@ th {height: 30px;}
 			</table>
 		</s:if>
 		<s:else>
-			<div style="color: red;">No Data Found.</div>
+			<div style="color: red;">Não existe Exame cadastrado.</div>
 		</s:else>
 	</div>
 </body>

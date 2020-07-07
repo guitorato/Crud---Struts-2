@@ -28,7 +28,7 @@ public class ReadAction extends ActionSupport {
 				while (rs.next()) {
 					i++;
 					exame = new Exame();
-					exame.setId(rs.getInt("ID"));
+					exame.setId(i);
 					exame.setNome(rs.getString("NOME"));
 					exame.setCpf(rs.getString("CPF"));
 					exame.setEmail(rs.getString("EMAIL"));
@@ -47,5 +47,51 @@ public class ReadAction extends ActionSupport {
 		}
 		return "READ";
 	}
+
+	public ResultSet getRs() {
+		return rs;
+	}
+
+	public void setRs(ResultSet rs) {
+		this.rs = rs;
+	}
+
+	public Exame getExame() {
+		return exame;
+	}
+
+	public void setExame(Exame exame) {
+		this.exame = exame;
+	}
+
+	public List<Exame> getExames() {
+		return exames;
+	}
+
+	public void setExames(List<Exame> exames) {
+		this.exames = exames;
+	}
+
+	public Dao getDao() {
+		return dao;
+	}
+
+	public void setDao(Dao dao) {
+		this.dao = dao;
+	}
+
+	public boolean isNoData() {
+		return noData;
+	}
+
+	public void setNoData(boolean noData) {
+		this.noData = noData;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 
 }
