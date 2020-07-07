@@ -12,13 +12,13 @@ public class Dao {
 	public int registerExame(String nome, String cpf, String telefone, String email, String resultado) throws Exception {
 		int i = 0;
 		try {
-			String sql = "INSERT INTO EXAME VALUES (?,?,?,?,?)";
+			String sql = "INSERT INTO EXAME (NOME,CPF,TELEFONE,EMAIL,RESULTADO) VALUES (?,?,?,?,?)";
 			PreparedStatement ps = DbConection.getConnection().prepareStatement(sql);
-			ps.setString(2, nome);
-			ps.setString(3, cpf);
-			ps.setString(4, telefone);
-			ps.setString(5, email);
-			ps.setString(6, resultado);
+			ps.setString(1, nome);
+			ps.setString(2, cpf);
+			ps.setString(3, telefone);
+			ps.setString(4, email);
+			ps.setString(5, resultado);
 			i = ps.executeUpdate();
 			return i;
 		} catch (Exception e) {
