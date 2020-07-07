@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h2>SOC - Teste EXAME</h2>
-	<a href="read.jsp"><button class="button-report" type="button">Exames Cadastrados</button></a>
+	<a href=readExame><button class="button-report" type="button">Exames Cadastrados</button></a>
 	<s:form action="registerExame.action" method="post">
 		
 		<s:textfield label="Nome" name="nome" />

@@ -18,7 +18,6 @@ th {height: 30px;}
 			<table>
 				<thead>
 					<tr style="background-color: #E0E0E1;">
-						<th>Código</th>
 						<th>Nome</th>
 						<th>CPF</th>
 						<th>Email</th>
@@ -35,10 +34,10 @@ th {height: 30px;}
 						<td><s:property value="telefone" /></td>
 						<td><s:property value="resultado" /></td>
 						<td>
-							<a href="updatedetails.action?submitType=updatedata&id=<s:property value="id"/>">
+							<a href="updateExame.action?submitType=updatedata&id=<s:property value="id"/>">
 								<button class="button-update">Update</button>
 							</a>
-							<a href="deleterecord.action?id=<s:property value="id"/>">
+							<a href="deleteExame.action?id=<s:property value="id"/>">
 								<button class="button-delete">Delete</button>
 							</a>
 						</td>
