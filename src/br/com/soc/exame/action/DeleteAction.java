@@ -15,7 +15,7 @@ public class DeleteAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		try {
-			int isDeleted = dao.deleteExame(id);
+			int isDeleted = dao.deleteExame(id);;
 			if (isDeleted > 0) {
 				msg = "Record deleted successfully";
 			} else {
@@ -26,5 +26,34 @@ public class DeleteAction extends ActionSupport {
 		}
 		return "DELETE";
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
+	public Dao getDao() {
+		return dao;
+	}
+
+	public void setDao(Dao dao) {
+		this.dao = dao;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 }
 

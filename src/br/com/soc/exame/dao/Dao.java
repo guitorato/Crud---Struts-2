@@ -71,7 +71,6 @@ public class Dao {
 	
 	public int updateExame(String nome, String cpf, String telefone, String email, String resultado)
 			throws SQLException, Exception {
-		DbConection.getConnection().setAutoCommit(false);
 		int i = 0;
 		try {
 			String sql = "UPDATE EXAME SET NOME=?,CPF=?,TELEFONE=?,EMAIL=? ,RESULTADO=? WHERE CPF=?";
@@ -96,22 +95,17 @@ public class Dao {
 
 
 	public int deleteExame(int id) throws SQLException, Exception {
-		DbConection.getConnection().setAutoCommit(false);
-		int i = 0;
-		try {
-			String sql = "DELETE FROM EXAME WHERE id=?";
-			PreparedStatement ps = DbConection.getConnection().prepareStatement(sql);
-			ps.setInt(1, id);
-			i = ps.executeUpdate();
-			return i;
-		} catch (Exception e) {
-			e.printStackTrace();
-			DbConection.getConnection().rollback();
-			return 0;
-		} finally {
-			if (DbConection.getConnection() != null) {
-				DbConection.getConnection().close();
-			}
+		
+		  try {
+		   String sql="delete from exame where id=?";
+		   PreparedStatement ps= DbConection.getConnection().prepareStatement(sql);
+		   ps.setInt(1, id);   
+		   ps.executeUpdate();
+		        } catch (SQLException e) {
+		                System.err.println(e.getMessage());
+		        }
+		return id;
+		
 		}
 	}
-}
+

@@ -16,7 +16,7 @@
 		<s:textfield label="CPF" name="cpf" />
 		<s:textfield label="Telefone" name="telefone" />
 		<s:textfield label="Email" name="email" />
-		<s:textfield label="Eesultado" name="resultado" />
+		<s:textfield label="Resultado" name="resultado" />
 				
 		<s:submit cssClass="button-register" value="Registrar" />
 	</s:form>
