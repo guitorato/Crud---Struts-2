@@ -14,9 +14,9 @@
 		<hr />
 		
 		<s:textfield label="Nome" name="nome" />
-		<s:textfield label="CPF" name="cpf" />
+		<s:textfield type="number" label="CPF" name="cpf" />
 		<s:textfield label="Telefone" name="telefone" />
-		<s:textfield label="Email" name="email" />
+		<s:textfield type="email" label="Email" name="email" />
 		<s:select name = "resultado" label = "Resultado"
             list = "{'CONFIRMADO','NEGADO'}" />
 				

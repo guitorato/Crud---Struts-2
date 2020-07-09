@@ -9,32 +9,31 @@
 		<hr />
 		
 	<form action=updateExame method="post">
-		<pre>
-		<label>Nome</label>        
-		<input type="text" name="nome" value='<s:property value="nome"/>'>
 		
-		<label>CPF</label>
-		<input type="text"  name="cpf" value='<s:property value="cpf"/>'>
+		<label>Nome</label><br />      
+		<input type="text" name="nome" value='<s:property value="nome"/>'><br />  
+		
+		<label>CPF</label><br />  
+		<input type="number"  name="cpf" value='<s:property value="cpf"/>'><br />  
 		           
-		<label>EMAIL</label>
-		<input type="text" name="email" value='<s:property value="email"/>'>
+		<label>EMAIL</label><br />  
+		<input type="email" name="email" value='<s:property value="email"/>'><br />  
 		
-		<label>Telefone</label>
-		<input type="tel" name="telefone" value='<s:property value="telefone"/>'>
+		<label>Telefone</label><br />  
+		<input type="tel" name="telefone" value='<s:property value="telefone"/>'><br />  
 		
-		<label for="resultado">Resultado:</label>
+		<label for="resultado">Resultado:</label><br />  
 			<select name="resultado" <s:property value="resultado"/>>
-				  <option value="CONFIRMADO">confirmado</option>
-				  <option value="NEGADO">Negado</option>
+				  <option value="CONFIRMADO">CONFIRMADO</option>
+				  <option value="NEGADO">NEGADO</option>
 				 
-			</select>
+			</select><br />  <br />  
 		
 		
 		
+		<button name="submitType" value="update" type="submit" 
+			onclick="return confirm('DESEJA FAZER ALTERAÇÃO DOS DADOS?')">ATUALIZAR</button>
 		
-		
-		<button name="submitType" value="update" type="submit">Update</button>
-		</pre>
 	</form>
 	
 	<s:if test="ctr>0">

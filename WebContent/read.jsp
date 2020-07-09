@@ -40,7 +40,7 @@ th {height: 30px;}
 								<button class="button-update">Update</button>
 							</a>
 							<a href="deleteExame.action?cpf=<s:property value="cpf"/>">
-								<button class="button-delete">Delete</button>
+								<button class="button-delete" onclick="return confirm('DESEJA EXCLUIR ESSE CADASTRO?')">Delete</button>
 							</a>
 						</td>
 					</tr>
