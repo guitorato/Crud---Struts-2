@@ -34,10 +34,10 @@ th {height: 30px;}
 						<td><s:property value="telefone" /></td>
 						<td><s:property value="resultado" /></td>
 						<td>
-							<a href="updateExame.action?submitType=updatedata&id=<s:property value="id"/>">
+							<a href="updateExame.action?submitType=updatedata&cpf=<s:property value="cpf"/>">
 								<button class="button-update">Update</button>
 							</a>
-							<a href="deleteExame.action?id=<s:property value="id"/>">
+							<a href="deleteExame.action?cpf=<s:property value="cpf"/>">
 								<button class="button-delete">Delete</button>
 							</a>
 						</td>

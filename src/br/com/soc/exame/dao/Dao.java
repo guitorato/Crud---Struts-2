@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import br.com.soc.exame.bean.Exame;
 import br.com.soc.exame.config.DbConection;
 
 public class Dao {
@@ -35,7 +36,7 @@ public class Dao {
 	public ResultSet readExame() throws SQLException, Exception {
 		ResultSet rs = null;
 		try {
-			String sql = "SELECT ID,NOME,CPF,TELEFONE,EMAIL,RESULTADO FROM EXAME";
+			String sql = "SELECT NOME,CPF,TELEFONE,EMAIL,RESULTADO FROM EXAME";
 			PreparedStatement ps = DbConection.getConnection().prepareStatement(sql);
 			rs = ps.executeQuery();
 			return rs;
@@ -50,12 +51,12 @@ public class Dao {
 	}
 
 	
-	public ResultSet fetchExame(int id) throws SQLException, Exception {
+	public ResultSet fetchExame(String cpf) throws SQLException, Exception {
 		ResultSet rs = null;
 		try {
-			String sql = "SELECT ID,NOME,CPF,TELEFONE,EMAIL,RESULTADO FROM EXAME WHERE id=?";
+			String sql = "SELECT NOME,CPF,TELEFONE,EMAIL,RESULTADO FROM EXAME WHERE CPF=?";
 			PreparedStatement ps = DbConection.getConnection().prepareStatement(sql);
-			ps.setInt(1, id);
+			ps.setString(1, cpf);
 			rs = ps.executeQuery();
 			return rs;
 		} catch (Exception e) {
@@ -69,17 +70,45 @@ public class Dao {
 	}
 
 	
-	public int updateExame(String nome, String cpf, String telefone, String email, String resultado)
+	public int updateExame(String nome, String cpf,String telefone,String email,String resultado)
 			throws SQLException, Exception {
+		DbConection.getConnection().setAutoCommit(false);
 		int i = 0;
 		try {
-			String sql = "UPDATE EXAME SET NOME=?,CPF=?,TELEFONE=?,EMAIL=? ,RESULTADO=? WHERE CPF=?";
+			String sql = "UPDATE EXAME SET NOME=?,TELEFONE=?,EMAIL=? ,RESULTADO=? WHERE cpf";
 			PreparedStatement ps = DbConection.getConnection().prepareStatement(sql);
-			ps.setString(2, nome);
-			ps.setString(3, cpf);
-			ps.setString(4, telefone);
-			ps.setString(5, email);
-			ps.setString(6, resultado);
+			ps.setString(1, nome);
+			ps.setString(2, telefone);
+			ps.setString(3, email);
+			ps.setString(4, resultado);
+			ps.setString(5, cpf);
+
+			
+			ps.executeUpdate();
+			
+			
+			
+			return i;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			DbConection.getConnection().rollback();
+				return 0;
+		} finally {
+			if (DbConection.getConnection() != null) {
+				DbConection.getConnection().close();
+			}
+		}
+		
+	}
+
+
+	public int deleteExame(String cpf) throws SQLException, Exception {
+		int i = 0;
+		  try {
+		   String sql="delete from exame where cpf=?";
+		   PreparedStatement ps= DbConection.getConnection().prepareStatement(sql);
+		   ps.setString(1, cpf);
 			i = ps.executeUpdate();
 			return i;
 		} catch (Exception e) {
@@ -92,20 +121,5 @@ public class Dao {
 			}
 		}
 	}
-
-
-	public int deleteExame(int id) throws SQLException, Exception {
-		
-		  try {
-		   String sql="delete from exame where id=?";
-		   PreparedStatement ps= DbConection.getConnection().prepareStatement(sql);
-		   ps.setInt(1, id);   
-		   ps.executeUpdate();
-		        } catch (SQLException e) {
-		                System.err.println(e.getMessage());
-		        }
-		return id;
-		
-		}
-	}
+}
 

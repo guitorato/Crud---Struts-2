@@ -28,7 +28,6 @@ public class ReadAction extends ActionSupport {
 				while (rs.next()) {
 					i++;
 					exame = new Exame();
-					exame.setId(i);
 					exame.setNome(rs.getString("NOME"));
 					exame.setCpf(rs.getString("CPF"));
 					exame.setEmail(rs.getString("EMAIL"));

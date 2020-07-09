@@ -8,14 +8,14 @@ import br.com.soc.exame.dao.Dao;
 public class DeleteAction extends ActionSupport {
 
 	private static final long serialVersionUID = -146601914103585418L;
-	int id; 
+	String cpf;
 	String msg;
 	Dao dao = new Dao();
 
 	@Override
 	public String execute() throws Exception {
 		try {
-			int isDeleted = dao.deleteExame(id);;
+			int isDeleted = dao.deleteExame(cpf);;
 			if (isDeleted > 0) {
 				msg = "Record deleted successfully";
 			} else {
@@ -27,13 +27,19 @@ public class DeleteAction extends ActionSupport {
 		return "DELETE";
 	}
 
-	public int getId() {
-		return id;
+	
+
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
+
+
 
 	public String getMsg() {
 		return msg;

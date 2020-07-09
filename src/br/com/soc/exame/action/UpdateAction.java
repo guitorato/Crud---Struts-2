@@ -11,9 +11,9 @@ import br.com.soc.exame.dao.Dao;
 public class UpdateAction extends ActionSupport {
 
 	private static final long serialVersionUID = -1905974197186620917L;
-	private int id = 0;
 	private String nome="";
 	private String cpf="";
+	private String cpfhidden = "";
 	private String telefone="";
 	private String email="";
 	private String resultado="";
@@ -27,38 +27,37 @@ public class UpdateAction extends ActionSupport {
 	public String execute() throws Exception {
 		try {
 			if (submitType.equals("updatedata")) {
-				rs = dao.fetchExame(exame.getId());
+				
+				rs = dao.fetchExame(cpf.trim());
+				
 				if (rs != null) {
-					while (rs.next()) {
+					while (rs.next()) {			
 						nome = rs.getString("nome");
 						cpf = rs.getString("cpf");
 						telefone = rs.getString("telefone");
 						email = rs.getString("email");
 						resultado = rs.getString("resultado");
+						
+						
 					}
 				}
+				
 			} else {
-				int i = dao.updateExame(nome, cpf, telefone, email, resultado);
+				
+				int i = dao.updateExame(nome, cpf, telefone, email, resultado);;
 				if (i > 0) {
 					msg = "Record Updated Successfuly";
 				} else {
 					msg = "error";
 				}
 			}
+		
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		return "UPDATE";
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -75,6 +74,14 @@ public class UpdateAction extends ActionSupport {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public String getCpfhidden() {
+		return cpfhidden;
+	}
+
+	public void setCpfhidden(String cpfhidden) {
+		this.cpfhidden = cpfhidden;
 	}
 
 	public String getTelefone() {
@@ -144,5 +151,7 @@ public class UpdateAction extends ActionSupport {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	
 	
 }
