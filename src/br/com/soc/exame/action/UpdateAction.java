@@ -38,20 +38,13 @@ public class UpdateAction extends ActionSupport {
 						email = rs.getString("email");
 						resultado = rs.getString("resultado");
 						
-						
 					}
 				}
 				
-			} else {
+			} 
 				
-				int i = dao.updateExame(nome, cpf, telefone, email, resultado);
-				if (i >= 0) {
-					msg = "Record Updated Successfuly";
-				} else {
-					
-				}
-			}
-		
+			dao.updateExame(nome, cpf, telefone, email, resultado);
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

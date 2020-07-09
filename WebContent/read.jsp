@@ -13,6 +13,8 @@ th {height: 30px;}
 </head>
 <body>
 	<h2>SOC - Teste EXAME</h2>
+	<a href=register.jsp><button class="button-report" type="button">CADASTRAR EXAME</button></a>
+	<hr />
 	<div style="margin-top: 40px;">
 		<s:if test="noData==true">
 			<table>

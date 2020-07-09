@@ -9,16 +9,19 @@
 </head>
 <body>
 	<h2>SOC - Teste EXAME</h2>
-	<a href=readExame><button class="button-report" type="button">Exames Cadastrados</button></a>
+	<a href=readExame><button class="button-report" type="button">EXAMES</button></a>
 	<s:form action="registerExame.action" method="post">
+		<hr />
 		
 		<s:textfield label="Nome" name="nome" />
 		<s:textfield label="CPF" name="cpf" />
 		<s:textfield label="Telefone" name="telefone" />
 		<s:textfield label="Email" name="email" />
-		<s:textfield label="Resultado" name="resultado" />
+		<s:select name = "resultado" label = "Resultado"
+            list = "{'CONFIRMADO','NEGADO'}" />
 				
 		<s:submit cssClass="button-register" value="Registrar" />
+		
 	</s:form>
 	<s:if test="ctr>0">
 		<span style="color: green;"><s:property value="msg" /></span>

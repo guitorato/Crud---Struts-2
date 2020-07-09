@@ -17,7 +17,7 @@ public class DeleteAction extends ActionSupport {
 		try {
 			int isDeleted = dao.deleteExame(cpf);;
 			if (isDeleted > 0) {
-				msg = "Record deleted successfully";
+				msg = "DELETADO COM SUCESSO";
 			} else {
 				msg = "Some error";
 			}

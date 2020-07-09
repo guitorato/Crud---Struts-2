@@ -23,7 +23,7 @@ public class RegisterAction extends ActionSupport {
 		try {
 			ctr = dao.registerExame(nome, cpf, telefone, email, resultado);
 			if (ctr > 0) {
-				msg = "Registration Successfull";
+				msg = "CADASTRO REALIZADO COM SUCESSO!";
 			} else {
 				msg = "Some error";
 			}
