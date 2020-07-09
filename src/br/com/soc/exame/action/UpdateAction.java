@@ -44,11 +44,11 @@ public class UpdateAction extends ActionSupport {
 				
 			} else {
 				
-				int i = dao.updateExame(nome, cpf, telefone, email, resultado);;
-				if (i > 0) {
+				int i = dao.updateExame(nome, cpf, telefone, email, resultado);
+				if (i >= 0) {
 					msg = "Record Updated Successfuly";
 				} else {
-					msg = "error";
+					
 				}
 			}
 		

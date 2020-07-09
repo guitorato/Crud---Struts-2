@@ -5,19 +5,25 @@
 </head>
 <body>
 	<h2>SOC - Teste EXAME</h2>
-	<s:form action="updateExame.action" method="post" >
+		
+	<form action=updateExame method="post">
+		<pre>
+<b>Name:         </b><input type="text" name="nome" value='<s:property value="nome"/>'>
 		
 		
-		<s:textfield label="Nome" name="nome" />
-		<s:textfield label="CPF" name="cpf" />
+<b>CPF:        </b><input type="text"  name="cpf" value='<s:property value="cpf"/>'>
+		           
 		
-		<s:textfield label="Telefone" name="telefone" />
-		<s:textfield label="Email" name="email" />
-		<s:textfield label="Resultado" name="resultado" />
-				
-		<s:submit cssClass="button-register" value="Atualizar" />
-	
-	</s:form>
+<b>EMAIL:     </b><input type="text" name="email" value='<s:property value="email"/>'>
+		
+		
+<b>Telefone:     </b><input type="text" name="telefone" value='<s:property value="telefone"/>'>
+
+<b>EMAIL:     </b><input type="text" name="resultado" value='<s:property value="resultado"/>'>
+		
+		<button name="submitType" value="update" type="submit">Update</button>
+		</pre>
+	</form>
 	
 	<s:if test="ctr>0">
 		<span style="color: red;"><s:property value="msg" /></span>

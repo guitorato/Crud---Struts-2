@@ -75,7 +75,7 @@ public class Dao {
 		DbConection.getConnection().setAutoCommit(false);
 		int i = 0;
 		try {
-			String sql = "UPDATE EXAME SET NOME=?,TELEFONE=?,EMAIL=? ,RESULTADO=? WHERE cpf";
+			String sql = "UPDATE EXAME SET NOME=?,TELEFONE=?,EMAIL=? ,RESULTADO=? WHERE CPF=?";
 			PreparedStatement ps = DbConection.getConnection().prepareStatement(sql);
 			ps.setString(1, nome);
 			ps.setString(2, telefone);
